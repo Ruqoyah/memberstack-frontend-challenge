@@ -1,11 +1,15 @@
+import { useLocation } from 'react-router-dom';
+import useStyles from './styles';
 import logo from './chat.png';
-import './App.css';
 
 function App() {
+  const color = useLocation()?.search.split('?color=')[1];
+  const classes = useStyles({ color });
+
   return (
     <div className="App">
-      <div className="chat-icon">
-        <img src={logo} className="chat-icon-image" alt="logo" />
+      <div className={classes.chatIcon}>
+        <img src={logo} className={classes.chatIconImage} alt="logo" />
       </div>
     </div>
   );
